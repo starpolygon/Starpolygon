@@ -1,13 +1,16 @@
+import java.awt.*;
 
+import javax.swing.*;
 public class Driver {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("print this stuff");
-		System.out.println("stupid");
+	public static void main(String[] args){
+		
+		Frame star = new Frame();
+		
+		star.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		star.setSize(800, 800);
+		star.setVisible(true);
+		
+		
 	}
-
+	
 }

@@ -7,7 +7,7 @@ public class Driver {
 		Frame star = new Frame();
 		
 		star.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		star.setSize(800, 800);
+		star.setSize(400,400);
 		star.setVisible(true);
 		
 		

@@ -3,25 +3,37 @@ import javax.swing.*;
 
 public class Frame extends JFrame {
 	
-	private JLabel textlabel;
+	public JLabel textlabel1;
+	public JLabel textlabel2;
+	public JLabel textlabel3;
+	
 	
 	public Frame (){
 		super("Star Polygon Project");
 		setLayout(new FlowLayout());
 		
-		textlabel = new JLabel("Enter Number of dots");
-		textlabel.setToolTipText("Enter the number of dots you would like to have appear in a circle");
-		add(textlabel);
-		TextField numdots = new TextField(15); 
+		//Dots field
+		JLabel textlabel1 = new JLabel("Enter Number of dots:",JLabel.LEFT);
+		textlabel1.setToolTipText("Enter the number of dots you would like to have appear in a circle");
+		add(textlabel1);
+		TextField numdots = new TextField(10); 
 		add(numdots);
-		textlabel = new JLabel("Speed in Milliseconds");
-		add(textlabel);
-		TextField speed = new TextField(15); 
+		
+		//Milliseconds field
+		JLabel textlabel2 = new JLabel("Speed in Milliseconds:",JLabel.LEFT);
+		add(textlabel2);
+		TextField speed = new TextField(10); 
 		add(speed);
+		
+		//Steps field 
+		JLabel textlabel3 = new JLabel("Enter number of Steps:",JLabel.LEFT);
+		add(textlabel3);
+		TextField steps = new TextField(10); 
+		add(steps);
 		
 		
 		
 	}
-	
+
 	
 }

@@ -6,7 +6,7 @@ public class Frame extends JFrame {
 	public JLabel textlabel1;
 	public JLabel textlabel2;
 	public JLabel textlabel3;
-	//variables
+	// variables
 	int r = 100;
 	int X = 220;
 	int Y = 170;
@@ -15,6 +15,22 @@ public class Frame extends JFrame {
 	float[] yc;
 	float[] linex;
 	float[] liney;
+
+	public void circle() {
+
+	}
+
+	public void PointOnCircle(float angleInDegrees, int c) {
+
+	}
+
+	public void Point(float x, float y) {
+
+	}
+
+	public void lines(/*Int32 steps*/) {
+
+	}
 
 	public Frame() {
 		super("Star Polygon Project");

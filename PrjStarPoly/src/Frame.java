@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Frame extends JFrame {
-
+	//form variables
 	public JLabel textlabel1;
 	public JLabel textlabel2;
 	public JLabel textlabel3;
@@ -17,7 +17,9 @@ public class Frame extends JFrame {
 	float[] liney;
 
 	public void circle() {
-
+		float angles;
+		
+		
 	}
 
 	public void PointOnCircle(float angleInDegrees, int c) {
@@ -38,8 +40,7 @@ public class Frame extends JFrame {
 
 		// Dots field
 		JLabel textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
-		textlabel1
-				.setToolTipText("Enter the number of dots you would like to have appear in a circle");
+		textlabel1.setToolTipText("Enter the number of dots you would like to have appear in a circle");
 		add(textlabel1);
 		TextField numdots = new TextField(10);
 		add(numdots);

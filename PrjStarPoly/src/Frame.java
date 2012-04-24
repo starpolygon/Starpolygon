@@ -50,6 +50,7 @@ public class Frame extends JFrame {
 		// buttons
 		JButton button1 = new JButton("Start");
 		add(button1);
+		
 
 		JButton button2 = new JButton("Back");
 		add(button2);

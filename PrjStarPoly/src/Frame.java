@@ -3,7 +3,6 @@ import javax.swing.*;
 
 import java.awt.event.*;
 
-
 public class Frame extends JFrame {
 	// form variables
 	JLabel textlabel1;
@@ -15,34 +14,13 @@ public class Frame extends JFrame {
 	int X = 220;
 	int Y = 170;
 	int place = 0;
-	float[] xc;
-	float[] yc;
-	float[] linex;
-	float[] liney;
+	public float[] xc;
+	public float[] yc;
+	public float[] linex;
+	public float[] liney;
 	private JButton button;
 
 	// comments
-
-	public void circle() {
-		float angle;
-		int dots = Integer.parseInt(textlabel1.getText());
-		angle = 360 / dots;
-		float Angle = angle;
-		xc = new float[dots];
-		yc = new float[dots];
-		for (int x = 0; x < dots; x++) {
-			//PointOnCircle(angle, x);
-			angle = angle + Angle;
-		}
-		// line(steps);
-
-	}
-
-	
-
-	
-
-	
 
 	// sets up the form
 	public Frame() {
@@ -68,20 +46,18 @@ public class Frame extends JFrame {
 		add(textlabel3);
 		TextField steps = new TextField(10);
 		add(steps);
-		
-		//buttons
+
+		// buttons
 		JButton button1 = new JButton("Start");
 		add(button1);
-		
-	
+
 		JButton button2 = new JButton("Back");
 		add(button2);
-		
+
 		JButton button3 = new JButton("Forward");
 		add(button3);
+
 		
-		
->>>>>>> branch 'master' of ssh://git@github.com/starpolygon/Starpolygon.git
 
 	}
 

@@ -3,9 +3,7 @@ import javax.swing.*;
 
 public class Frame extends JFrame {
 	//form variables
-	public JLabel textlabel1;
-	public JLabel textlabel2;
-	public JLabel textlabel3;
+	private JLabel textlabel1;
 	// variables
 	int r = 100;
 	int X = 220;
@@ -17,20 +15,35 @@ public class Frame extends JFrame {
 	float[] liney;
 
 	public void circle() {
-		float angles;
+		float angle;
+		int dots = Integer.parseInt(textlabel1.getText());
+		angle = 360 / dots;
+        float Angle = angle;
+        xc = new float[dots];
+        yc = new float[dots];
+        for (int x = 0; x < dots; x++)
+        {
+            PointOnCircle(angle, x);
+            angle = angle + Angle;
+        }
+        //line(steps);
 		
 		
 	}
 
 	public void PointOnCircle(float angleInDegrees, int c) {
-
+		float x = (float)(X + r * Math.cos(angleInDegrees * Math.PI / 180 + Math.PI * 3/2));
+        float y = (float)(Y + r * Math.sin(angleInDegrees * Math.PI / 180 + Math.PI * 3/2));
+        Point(x, y);
+        xc[c] = x;
+        yc[c] = y;
 	}
 
 	public void Point(float x, float y) {
 
 	}
 
-	public void lines(/*Int32 steps*/) {
+	public void lines() {
 
 	}
 
@@ -44,6 +57,7 @@ public class Frame extends JFrame {
 		add(textlabel1);
 		TextField numdots = new TextField(10);
 		add(numdots);
+		
 
 		// Milliseconds field
 		// stuff

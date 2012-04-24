@@ -61,7 +61,6 @@ public class Frame extends JFrame {
 		
 
 		// Milliseconds field
-		// stuff
 		JLabel textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.LEFT);
 		add(textlabel2);
 		TextField speed = new TextField(10);

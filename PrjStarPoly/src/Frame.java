@@ -13,6 +13,7 @@ public class Frame extends JFrame {
 	float[] yc;
 	float[] linex;
 	float[] liney;
+	//comments
 
 	public void circle() {
 		float angle;

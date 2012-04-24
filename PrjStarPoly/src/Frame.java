@@ -3,7 +3,11 @@ import javax.swing.*;
 
 public class Frame extends JFrame {
 	//form variables
-	private JLabel textlabel1;
+	JLabel textlabel1;
+	JLabel textlabel2;
+	JLabel textlabel3;
+
+	
 	// variables
 	int r = 100;
 	int X = 220;
@@ -39,12 +43,18 @@ public class Frame extends JFrame {
         xc[c] = x;
         yc[c] = y;
 	}
-	//point class, figures out where the points are in the cicle
+	//point class, figures out where the points are in the circle
 	public void Point(float x, float y) {
+		
 
 	}
 	// draws the lines
 	public void lines() {
+		int linex;
+		//need to figure out how to get input from form
+	//	linex=Float.valueOf().floatValue();
+		int c = 0;
+		int x =0;
 	}
 	//sets up the form
 	public Frame() {

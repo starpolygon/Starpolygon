@@ -86,17 +86,38 @@ public class Frame extends JFrame {
 		//buttons
 		JButton button1 = new JButton("Start");
 		add(button1);
+		button1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				
+				//the action after button1(start) is pressed
+				System.out.println("you pressed the Start button");
+			}
+		});
+			
 		
 	
 		JButton button2 = new JButton("Back");
 		add(button2);
+		button2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				
+				//the action after button2(back) is pressed
+				
+				System.out.println("you pressed the Back button");
+			}
+		});
 		
 		JButton button3 = new JButton("Forward");
 		add(button3);
+		button3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				
+				//the action after button3(forward) is pressed
+				System.out.println("you pressed the Forward button");
+			}
+		});
 		
 		
->>>>>>> branch 'master' of ssh://git@github.com/starpolygon/Starpolygon.git
-
 	}
 
 }

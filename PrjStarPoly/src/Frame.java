@@ -108,7 +108,7 @@ public class Frame extends JFrame {
                     Thread.Sleep(speed);
                 } 
             }
-            g.Dispose();
+            
             pen.Dispose();
             label5.Text = c.ToString();
             place = c-1;

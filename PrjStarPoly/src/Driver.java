@@ -9,7 +9,7 @@ public class Driver {
 		star.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		star.setSize(400,400);
 		star.setVisible(true);
-		
+		//comments
 		
 	}
 	

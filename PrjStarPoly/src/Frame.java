@@ -83,8 +83,16 @@ public class Frame extends JFrame {
 		TextField steps = new TextField(10);
 		add(steps);
 		
+		//buttons
 		JButton button1 = new JButton("Start");
 		add(button1);
+		
+	
+		JButton button2 = new JButton("Back");
+		add(button2);
+		
+		JButton button3 = new JButton("Forward");
+		add(button3);
 		
 		
 

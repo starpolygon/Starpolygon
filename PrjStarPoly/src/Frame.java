@@ -91,6 +91,7 @@ public class Frame extends JFrame {
 				
 				//the action after button1(start) is pressed
 				System.out.println("you pressed the Start button");
+				
 			}
 		});
 			
@@ -102,7 +103,6 @@ public class Frame extends JFrame {
 			public void actionPerformed(ActionEvent e){
 				
 				//the action after button2(back) is pressed
-				
 				System.out.println("you pressed the Back button");
 			}
 		});

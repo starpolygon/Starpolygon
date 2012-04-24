@@ -1,6 +1,9 @@
 import java.awt.*;
 import javax.swing.*;
 
+import java.awt.event.*;
+
+
 public class Frame extends JFrame {
 	//form variables
 	private JLabel textlabel1;
@@ -13,6 +16,7 @@ public class Frame extends JFrame {
 	float[] yc;
 	float[] linex;
 	float[] liney;
+	private JButton button;
 	//comments
 
 	public void circle() {
@@ -45,9 +49,9 @@ public class Frame extends JFrame {
 	}
 
 	public void lines() {
-//hello
-	}
 
+	}
+// comment test
 	public Frame() {
 		super("Star Polygon Project");
 		setLayout(new FlowLayout());
@@ -72,7 +76,26 @@ public class Frame extends JFrame {
 		add(textlabel3);
 		TextField steps = new TextField(10);
 		add(steps);
+		
+		
+		
 
 	}
+	
+	
+	protected JButton x = new JButton("Start");
+	
+	public void actionPerformed(ActionEvent e){
+		
+	}
+		
+		
+		}
 
-}
+	
+		  
+
+		  
+	
+
+

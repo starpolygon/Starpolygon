@@ -45,7 +45,7 @@ public class Frame extends JFrame {
 	}
 
 	public void lines() {
-
+//hello
 	}
 
 	public Frame() {

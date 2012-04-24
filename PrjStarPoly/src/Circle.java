@@ -1,6 +1,7 @@
 
 public class Circle {
 
+	
 	public void circle() {
 		float angle;
 		int dots = 0;
@@ -9,10 +10,10 @@ public class Circle {
 		xc = new float[dots];
 		yc = new float[dots];
 		for (int x = 0; x < dots; x++) {
-			//PointOnCircle(angle, x);
+			PointOnCircle(angle, x);
 			angle = angle + Angle;
 		}
-		// line(steps);
+		
 
 	}
 }

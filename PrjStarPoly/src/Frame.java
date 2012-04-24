@@ -19,6 +19,7 @@ public class Frame extends JFrame {
 	float[] yc;
 	float[] linex;
 	float[] liney;
+	private JButton button;
 
 	// comments
 
@@ -55,34 +56,6 @@ public class Frame extends JFrame {
 	// draws the lines
 	public void lines() {
 
-		int c = 0;
-		int x = 0;
-		// need to figure out how to get input from form
-		// linex=Float.valueOf().floatValue();
-		/*
-		 * Pen pen = new Pen(Color.Black); Graphics g = panel1.CreateGraphics();
-		 * int x = 0; int speed = Int32.Parse(textBox3.Text); if(x + steps <
-		 * xc.Length) { g.DrawLine(pen, xc[x]+1, yc[x]+1, xc[x + steps]+1, yc[x
-		 * + steps]+1); linex[c,0] = xc[x] + 1; linex[c,1] = xc[x + steps] + 1;
-		 * liney[c,0] = yc[x] + 1; liney[c,1] = yc[x + steps] + 1; c++; x = x +
-		 * steps; Thread.Sleep(speed); if (x + steps >= xc.Length) {
-		 * g.DrawLine(pen, xc[x]+1, yc[x]+1, xc[(x + steps) % xc.Length]+1,
-		 * yc[(x + steps) % xc.Length]+1); linex[c, 0] = xc[x] + 1; linex[c, 1]
-		 * = xc[(x + steps) % xc.Length] + 1; liney[c, 0] = yc[x] + 1; liney[c,
-		 * 1] = yc[(x + steps) % xc.Length] + 1; c++; x = (x + steps) %
-		 * xc.Length; Thread.Sleep(speed); } } while (x != 0) { if(x + steps <
-		 * xc.Length) { g.DrawLine(pen, xc[x]+1, yc[x]+1, xc[x + steps]+1, yc[x
-		 * + steps]+1); linex[c, 0] = xc[x] + 1; linex[c, 1] = xc[x + steps] +
-		 * 1; liney[c, 0] = yc[x] + 1; liney[c, 1] = yc[x + steps] + 1; x = x +
-		 * steps; c++; Thread.Sleep(speed); } else if (x + steps >= xc.Length) {
-		 * g.DrawLine(pen, xc[x]+1, yc[x]+1, xc[(x + steps) % xc.Length]+1,
-		 * yc[(x + steps) % xc.Length]+1); linex[c, 0] = xc[x] + 1; linex[c, 1]
-		 * = xc[(x + steps) % xc.Length] + 1; liney[c, 0] = yc[x] + 1; liney[c,
-		 * 1] = yc[(x + steps) % xc.Length] + 1; c++; x = (x + steps) %
-		 * xc.Length; Thread.Sleep(speed); } }
-		 * 
-		 * pen.Dispose(); label5.Text = c.ToString(); place = c-1; }
-		 */
 	}
 
 	// sets up the form
@@ -109,6 +82,20 @@ public class Frame extends JFrame {
 		add(textlabel3);
 		TextField steps = new TextField(10);
 		add(steps);
+		
+		//buttons
+		JButton button1 = new JButton("Start");
+		add(button1);
+		
+	
+		JButton button2 = new JButton("Back");
+		add(button2);
+		
+		JButton button3 = new JButton("Forward");
+		add(button3);
+		
+		
+>>>>>>> branch 'master' of ssh://git@github.com/starpolygon/Starpolygon.git
 
 	}
 

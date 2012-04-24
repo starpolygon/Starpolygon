@@ -39,15 +39,14 @@ public class Frame extends JFrame {
         xc[c] = x;
         yc[c] = y;
 	}
-
+	//point class, figures out where the points are in the cicle
 	public void Point(float x, float y) {
 
 	}
-
+	// draws the lines
 	public void lines() {
-//hello
 	}
-
+	//sets up the form
 	public Frame() {
 		super("Star Polygon Project");
 		setLayout(new FlowLayout());

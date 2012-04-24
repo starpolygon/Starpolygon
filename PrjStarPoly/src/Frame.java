@@ -77,17 +77,15 @@ public class Frame extends JFrame {
 		TextField steps = new TextField(10);
 		add(steps);
 		
+		JButton button1 = new JButton("Start");
+		add(button1);
 		
 		
 
 	}
 	
 	
-	protected JButton x = new JButton("Start");
 	
-	public void actionPerformed(ActionEvent e){
-		
-	}
 		
 		
 		}

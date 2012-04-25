@@ -19,20 +19,32 @@ public class Frame extends JFrame {
 	public float[] linex;
 	public float[] liney;
 	private JButton button;
-
+	private TextField numdots;
+	private TextField speed;
+	
 	// comments
 
+	
+	public TextField getNumdots(){
+		return numdots;
+	}
+	
+	public TextField getSpeed(){
+		return speed;
+	}
+	
+	
 	// sets up the form
 	public Frame() {
 		super("Star Polygon Project");
 		setLayout(new FlowLayout());
-
+			
 		// Dots field
 		JLabel textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
 		textlabel1
 				.setToolTipText("Enter the number of dots you would like to have appear in a circle");
 		add(textlabel1);
-		TextField numdots = new TextField(10);
+		numdots = new TextField(10);
 		add(numdots);
 
 		// Milliseconds field

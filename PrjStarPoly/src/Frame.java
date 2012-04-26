@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -33,8 +34,10 @@ public class Frame extends JFrame {
 		add(panel1);
 
 		// label5
-		label5 = new JLabel("", JLabel.BOTTOM);
+		label5 = new JLabel("Stuff");
 		add(label5);
+		TextField test = new TextField(10);
+		add(test);
 
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);

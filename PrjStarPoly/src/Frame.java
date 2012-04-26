@@ -1,5 +1,8 @@
 import java.awt.*;
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of ssh://git@github.com/starpolygon/Starpolygon.git
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -34,10 +37,15 @@ public class Frame extends JFrame {
 		add(panel1);
 
 		// label5
+<<<<<<< HEAD
 		label5 = new JLabel("Stuff");
 		add(label5);
 		TextField test = new TextField(10);
 		add(test);
+=======
+		label5 = new JLabel("", JLabel.BOTTOM);
+		add(label5);
+>>>>>>> branch 'master' of ssh://git@github.com/starpolygon/Starpolygon.git
 
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);

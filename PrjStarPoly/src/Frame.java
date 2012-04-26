@@ -40,11 +40,6 @@ public class Frame extends JFrame {
 		TextField test = new TextField(10);
 		add(test);
 
-		TextField thing = new TextField("thing");
-		add(thing);
-		add(label5);
-
-
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
 		textlabel1

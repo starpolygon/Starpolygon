@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Frame extends JFrame {
+public class Frame extends JApplet {
 	// form variables
 	JLabel textlabel1;
 	JLabel textlabel2;
@@ -21,12 +21,12 @@ public class Frame extends JFrame {
 	public float[] yc;
 	public float[][] linex;
 	public float[][] liney;
-	private TextField numdots;
-	private TextField speed;
+	public TextField numdots;
+	public TextField speed;
 
 	// sets up the form
 	public Frame() {
-		super("Star Polygon Project");
+		super();
 		setLayout(new FlowLayout());
 
 		// panel
@@ -34,12 +34,8 @@ public class Frame extends JFrame {
 		add(panel1);
 
 		// label5
-		
-		label5 = new JLabel("Stuff");
-		add(label5);
-		TextField test = new TextField(10);
-		add(test);
 
+		
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
 		textlabel1
@@ -49,13 +45,13 @@ public class Frame extends JFrame {
 		add(numdots);
 
 		// Milliseconds field
-		JLabel textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.LEFT);
+		textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.LEFT);
 		add(textlabel2);
 		TextField speed = new TextField(10);
 		add(speed);
 
 		// Steps field
-		JLabel textlabel3 = new JLabel("Enter number of Steps:", JLabel.LEFT);
+		textlabel3 = new JLabel("Enter number of Steps:", JLabel.LEFT);
 		add(textlabel3);
 		steps = new TextField(10);
 		add(steps);
@@ -72,7 +68,7 @@ public class Frame extends JFrame {
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
-				System.out.println("you pressed the Start button");
+				//System.out.println("you pressed the Start button");
 
 			}
 		});
@@ -94,7 +90,7 @@ public class Frame extends JFrame {
 					place--;
 					g.dispose();
 				}
-				System.out.println("you pressed the Back button");
+				//System.out.println("you pressed the Back button");
 			}
 		});
 
@@ -114,7 +110,7 @@ public class Frame extends JFrame {
 					g.drawLine(x0, y0, x1, y1);
 					g.dispose();
 				}
-				System.out.println("you pressed the Forward button");
+				
 			}
 		});
 
@@ -129,8 +125,9 @@ public class Frame extends JFrame {
 		int y0 = (int) yc[x];
 		int x1 = (int) xc[x + steps];
 		int y1 = (int) yc[x + steps];
+		int tim;
 		String time = speed.getText();
-		int tim = Integer.parseInt(time);
+		tim= Integer.parseInt(time);
 		if (x + steps < xc.length) {
 			g.drawLine(x0 + 1, y0 + 1, x1 + 1, y1 + 1);
 			linex[c][0] = xc[x] + 1;
@@ -176,7 +173,7 @@ public class Frame extends JFrame {
 
 		}
 		g.dispose();
-		label5.setText(Integer.toString(c));
+		//label5.setText(Integer.toString(c));
 		place = c - 1;
 	}// end of lines
 

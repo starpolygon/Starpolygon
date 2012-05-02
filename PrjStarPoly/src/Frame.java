@@ -1,9 +1,10 @@
 import java.awt.*;
 
 import javax.swing.*;
+
 import java.awt.event.*;
 
-public class Frame extends JFrame {
+public class Frame extends JApplet {
 	// form variables
 	JLabel textlabel1;
 	JLabel textlabel2;
@@ -26,19 +27,12 @@ public class Frame extends JFrame {
 
 	// sets up the form
 	public Frame() {
-		super("Star Polygon Project");
+		//super("Star Polygon Project");
 		setLayout(new FlowLayout());
 
 		// panel
 		panel1 = new JPanel(new BorderLayout());
 		add(panel1);
-
-		// label5
-		
-		label5 = new JLabel("Stuff");
-		add(label5);
-		TextField test = new TextField(10);
-		add(test);
 
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);

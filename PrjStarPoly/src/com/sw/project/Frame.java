@@ -21,8 +21,8 @@ public class Frame extends JApplet implements Runnable {
 	int X = 220;
 	int Y = 170;
 	int place = 0;
-	public float[] xc;
-	public float[] yc;
+	public float[] xc = new float [100];
+	public float[] yc = new float [100];
 	public float[][] linex = new float[100][2];
 	public float[][] liney = new float[100][2];
 	public TextField numdots;

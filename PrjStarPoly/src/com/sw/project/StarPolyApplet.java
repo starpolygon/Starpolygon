@@ -6,19 +6,18 @@ import java.awt.BorderLayout;
 public class StarPolyApplet extends Applet {
 	private static final long serialVersionUID = 1L;
 
-	
 	private Frame starPoly = new Frame();
-	
-	public void init(){
+
+	public void init() {
 		setLayout(new BorderLayout());
 		add(starPoly);
 	}
-	
-	public void start(){
+
+	public void start() {
 		starPoly.start();
 	}
-	
-	public void stop(){
+
+	public void stop() {
 		starPoly.stop();
 	}
 }

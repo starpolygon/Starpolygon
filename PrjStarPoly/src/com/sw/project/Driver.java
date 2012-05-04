@@ -10,5 +10,6 @@ public class Driver {
 		//star.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		star.setSize(300, 400);
 		star.setVisible(true);
+		star.add(star);
 	}
 }

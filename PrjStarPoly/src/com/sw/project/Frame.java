@@ -32,30 +32,35 @@ public class Frame extends JApplet implements Runnable {
 	private Thread thread;
 
 	// sets up the form
+	public Graphics create(int x, int y, int width, int height) {
+		
+		return null;
+
+	}
+
 	public Frame() {
 		super();
-		setLayout(new FlowLayout());
+		setLayout(new GridLayout(5, 3, 10, 10));
 
-		
-		 panel1 = new JPanel(new BorderLayout());
-		 add(panel1);
-		
+
+
 		// label5
 
 		// Dots field
-		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
+		textlabel1 = new JLabel("Enter Number of dots:", JLabel.RIGHT);
 		add(textlabel1);
 		numdots = new TextField(10);
+		numdots.setSize(50, 10);
 		add(numdots);
 
 		// Milliseconds field
-		textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.LEFT);
+		textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.RIGHT);
 		add(textlabel2);
 		speed = new TextField(10);
 		add(speed);
 
 		// Steps field
-		textlabel3 = new JLabel("Enter number of Steps:", JLabel.LEFT);
+		textlabel3 = new JLabel("Enter number of Steps:", JLabel.RIGHT);
 		add(textlabel3);
 		steps = new TextField(10);
 		add(steps);
@@ -124,6 +129,10 @@ public class Frame extends JApplet implements Runnable {
 
 			}
 		});
+		panel1 = new JPanel(new BorderLayout());
+		panel1.setSize(300, 400);
+		panel1.setBackground(Color.WHITE);
+		add(panel1);
 
 	}
 
@@ -152,7 +161,6 @@ public class Frame extends JApplet implements Runnable {
 
 	public void lines(int steps) throws InterruptedException {
 		// try {
-		
 
 		int c = 0;
 		Graphics g = panel1.getGraphics();
@@ -230,7 +238,7 @@ public class Frame extends JApplet implements Runnable {
 		g.fillRect(x, y, 3, 3);
 		Thread.sleep(Integer.parseInt(Time));
 		g.dispose();
-		
+
 	}
 
 	public void PointOnCircle(float angleInDegrees, int c)

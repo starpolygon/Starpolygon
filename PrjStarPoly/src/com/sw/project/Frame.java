@@ -30,16 +30,17 @@ public class Frame extends JApplet implements Runnable {
 	public float[][] liney;
 	public TextField numdots;
 	public TextField speed;
-	public String Time;
+	int Time;
 	private boolean running = false;
 	private Thread thread;
 
 	public Frame() {
 		super();
-		setLayout(new GridLayout(3, 1, 10, 10));
-
+		setLayout(new BorderLayout(10,10));
+		//setLayout(new GridBagLayout());
+		//setLayout(new GridLayout(3, 1, 10, 10));
 		// label5
-
+		//GridBagConstraints constraint = new GridBagConstraints();
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
 
@@ -49,23 +50,31 @@ public class Frame extends JApplet implements Runnable {
 		textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.LEFT);
 
 		speed = new TextField(10);
-
+		
 		// Steps field
 		textlabel3 = new JLabel("Enter number of Steps:", JLabel.LEFT);
 
 		steps = new TextField(10);
+
 
 		// buttons
 		JButton start = new JButton("Start");
 
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				x = 0;
+				c = 0;
+				place = 0;
+				Time = 0;
 				int cccc = Integer.parseInt(numdots.getText());
 				linex = new float[cccc][2];
 				liney = new float[cccc][2];
 				xc = new float[cccc];
 				yc = new float[cccc];
-				Time = speed.getText();
+				if(speed.getText() != "" || speed.getText() != null)
+				{
+				Time = Integer.parseInt(speed.getText());
+				}
 				Graphics g = panel3.getGraphics();
 				g.setColor(Color.WHITE);
 				g.fillRect(0, 0, 1000, 1000);
@@ -80,13 +89,14 @@ public class Frame extends JApplet implements Runnable {
 			}
 		});
 
-		JButton button2 = new JButton("Back");
+		JButton back = new JButton("Back");
 
-		button2.addActionListener(new ActionListener() {
+		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				if (place >= 0) {
-					Graphics g = panel1.getGraphics();
+					Graphics g = panel3.getGraphics();
+					g.setColor(Color.WHITE);
 					int x0 = (int) linex[place][0];
 					int y0 = (int) liney[place][0];
 					int x1 = (int) linex[place][1];
@@ -101,9 +111,9 @@ public class Frame extends JApplet implements Runnable {
 			}
 		});
 
-		JButton button3 = new JButton("Forward");
+		JButton forward = new JButton("Forward");
 
-		button3.addActionListener(new ActionListener() {
+		forward.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String dots = numdots.getText();
 
@@ -114,7 +124,8 @@ public class Frame extends JApplet implements Runnable {
 					int y0 = (int) liney[place][0];
 					int x1 = (int) linex[place][1];
 					int y1 = (int) liney[place][1];
-					Graphics g = panel1.getGraphics();
+					Graphics g = panel3.getGraphics();
+					g.setColor(Color.BLACK);
 					g.drawLine(x0, y0, x1, y1);
 					g.dispose();
 				}
@@ -123,27 +134,42 @@ public class Frame extends JApplet implements Runnable {
 		});
 
 		panel1 = new JPanel(new GridLayout(3, 2, 10, 10));
-
 		panel1.add(textlabel1);
 		panel1.add(numdots);
-		panel1.add(textlabel2);
-		panel1.add(speed);
 		panel1.add(textlabel3);
 		panel1.add(steps);
-		panel1.setBounds(10, 10, 400, 300);
-		add(panel1);
+		panel1.add(textlabel2);
+		panel1.add(speed);
+		/*constraint.gridwidth = 3;
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.weightx = 0.0;
+		constraint.fill = GridBagConstraints.HORIZONTAL;*/
+		//panel1.setBounds(10, 10, 400, 300);
+		panel1.setPreferredSize(new Dimension(200, 100));
+		add(panel1, BorderLayout.PAGE_START);
 
-		panel2 = new JPanel(new FlowLayout());
-
+		panel2 = new JPanel(new GridLayout(1,3,10,10));
 		panel2.add(start);
-		panel2.add(button2);
-		panel2.add(button3);
-		panel2.setBounds(10, 100, 400, 100);
-		add(panel2);
+		panel2.add(back);
+		panel2.add(forward);
+		//panel2.setBounds(10, 100, 400, 100);
+		/*constraint.gridwidth = 3;
+		constraint.gridx = 0;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.HORIZONTAL;*/
+		panel2.setPreferredSize(new Dimension(20, 20));
+		add(panel2, BorderLayout.PAGE_END);
 
 		panel3 = new JPanel(new FlowLayout());
-		panel3.setBackground(Color.WHITE);
-		add(panel3);
+		/*constraint.gridwidth = 3;
+		constraint.gridx = 0;
+		constraint.fill = GridBagConstraints.HORIZONTAL;
+		constraint.gridy = 3;
+		constraint.ipady = 200;
+		panel3.setBackground(Color.WHITE);*/
+		panel3.setPreferredSize(new Dimension(200, 200));
+		add(panel3, BorderLayout.CENTER);
 
 	}
 
@@ -175,9 +201,6 @@ public class Frame extends JApplet implements Runnable {
 		Graphics g = panel3.getGraphics();
 		g.setColor(Color.BLACK);
 		x = i;
-		int time;
-		String Time = speed.getText();
-		time = Integer.parseInt(Time);
 		if (x + steps < xc.length) {
 
 			g.drawLine((int) xc[x] + 1, (int) yc[x] + 1,
@@ -188,7 +211,7 @@ public class Frame extends JApplet implements Runnable {
 			liney[c][1] = yc[x + steps] + 1;
 			c++;
 			x = x + steps;
-			Thread.sleep(time);
+			Thread.sleep(Time);
 
 		}
 		if (x + steps >= xc.length) {
@@ -201,7 +224,7 @@ public class Frame extends JApplet implements Runnable {
 			liney[c][1] = yc[crap] + 1;
 			c++;
 			x = crap;
-			Thread.sleep(time);
+			Thread.sleep(Time);
 
 		}
 
@@ -215,7 +238,7 @@ public class Frame extends JApplet implements Runnable {
 				liney[c][1] = yc[x + steps] + 1;
 				x = x + steps;
 				c++;
-				Thread.sleep(time);
+				Thread.sleep(Time);
 			} else if (x + steps >= xc.length) {
 				int crap = x + steps - xc.length;
 				g.drawLine((int) xc[x] + 1, (int) yc[x] + 1,
@@ -226,15 +249,11 @@ public class Frame extends JApplet implements Runnable {
 				liney[c][1] = yc[crap] + 1;
 				c++;
 				x = crap;
-				Thread.sleep(time);
+				Thread.sleep(Time);
 			}
 
 		}
-		for (int ii = 0; ii < linex.length; ii++) {
-			int x11 = (int) linex[ii][0];
-			int y11 = (int) linex[ii][1];
-			System.out.println(x11 + " " + y11);
-		}
+		
 		g.dispose();
 
 		place = c - 1;
@@ -245,7 +264,7 @@ public class Frame extends JApplet implements Runnable {
 		Graphics g = panel3.getGraphics();
 		g.setColor(Color.BLACK);
 		g.fillRect(x, y, 3, 3);
-		Thread.sleep(Integer.parseInt(Time));
+		Thread.sleep(Time);
 		g.dispose();
 
 	}
@@ -265,12 +284,12 @@ public class Frame extends JApplet implements Runnable {
 		float angle;
 		String dot = numdots.getText();
 		String ste = steps.getText();
-		int dots = Integer.parseInt(dot);
+		float dots = Integer.parseInt(dot);
 		int step = Integer.parseInt(ste);
 		angle = 360 / dots;
 		float Angle = angle;
-		xc = new float[dots];
-		yc = new float[dots];
+		xc = new float[(int)dots];
+		yc = new float[(int)dots];
 		for (int x = 0; x < dots; x++) {
 			PointOnCircle(angle, x);
 			angle = angle + Angle;

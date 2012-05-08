@@ -3,6 +3,7 @@ package com.sw.project;
 import java.awt.*;
 
 import javax.swing.*;
+
 import java.awt.event.*;
 
 public class Frame extends JApplet implements Runnable {
@@ -14,7 +15,7 @@ public class Frame extends JApplet implements Runnable {
 	JLabel textlabel3;
 	JLabel label5;
 	TextField steps;
-	JPanel panel1;
+	JPanel panel1, panel2, panel3;
 
 	// variables
 	int r = 100;
@@ -31,44 +32,42 @@ public class Frame extends JApplet implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 
-	// sets up the form
-	public Graphics create(int x, int y, int width, int height) {
-		
-		return null;
-
-	}
 
 	public Frame() {
 		super();
-		setLayout(new GridLayout(5, 3, 10, 10));
+		setLayout(new GridLayout(3, 1, 10, 10));
 
 
 
 		// label5
 
 		// Dots field
-		textlabel1 = new JLabel("Enter Number of dots:", JLabel.RIGHT);
-		add(textlabel1);
+		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
+		//textlabel1.setSize(200, 10);
+		//textlabel1.isPreferredSizeSet();
+		//add(textlabel1);
 		numdots = new TextField(10);
-		numdots.setSize(50, 10);
-		add(numdots);
+		//Dimension d = new Dimension(10,10);
+		//numdots.setPreferredSize(d);
+		//numdots.setSize(50, 10);
+		//add(numdots);
 
 		// Milliseconds field
-		textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.RIGHT);
-		add(textlabel2);
+		textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.LEFT);
+		//add(textlabel2);
 		speed = new TextField(10);
-		add(speed);
-
+		//add(speed);
+	
 		// Steps field
-		textlabel3 = new JLabel("Enter number of Steps:", JLabel.RIGHT);
-		add(textlabel3);
+		textlabel3 = new JLabel("Enter number of Steps:", JLabel.LEFT);
+		//add(textlabel3);
 		steps = new TextField(10);
-		add(steps);
+		//add(steps);
 
 		// buttons
 		JButton start = new JButton("Start");
-		add(start);
-
+		//add(start);
+		
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int cccc = Integer.parseInt(numdots.getText());
@@ -77,6 +76,11 @@ public class Frame extends JApplet implements Runnable {
 				xc = new float[cccc];
 				yc = new float[cccc];
 				Time = speed.getText();
+				Graphics g = panel3.getGraphics();
+				g.setColor(Color.WHITE);
+				g.fillRect(0, 0, 1000, 1000);
+				g.dispose();
+				
 				try {
 					circle();
 				} catch (InterruptedException e1) {
@@ -88,7 +92,7 @@ public class Frame extends JApplet implements Runnable {
 		});
 
 		JButton button2 = new JButton("Back");
-		add(button2);
+		//add(button2);
 		button2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -109,7 +113,7 @@ public class Frame extends JApplet implements Runnable {
 		});
 
 		JButton button3 = new JButton("Forward");
-		add(button3);
+		//add(button3);
 
 		button3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,10 +133,32 @@ public class Frame extends JApplet implements Runnable {
 
 			}
 		});
-		panel1 = new JPanel(new BorderLayout());
-		panel1.setSize(300, 400);
-		panel1.setBackground(Color.WHITE);
+		
+		panel1 = new JPanel(new GridLayout(3,2,10,10));
+		//panel1.setSize(300, 400);
+		//panel1.setBackground(Color.WHITE);
+		panel1.add(textlabel1);
+		panel1.add(numdots);
+		panel1.add(textlabel2);
+		panel1.add(speed);
+		panel1.add(textlabel3);
+		panel1.add(steps);
+		panel1.setBounds(10, 10, 400, 300);
 		add(panel1);
+		
+		panel2 = new JPanel(new FlowLayout());
+		//panel2.setBackground(Color.WHITE);
+		panel2.add(start);
+		panel2.add(button2);
+		panel2.add(button3);
+		panel2.setBounds(10, 100, 400, 100);
+		add(panel2);
+		
+		panel3 = new JPanel(new FlowLayout());
+		panel3.setBackground(Color.WHITE);
+		//panel3.setBounds(10, 200, 400, 600);
+		//panel3.setSize(400,300);
+		add(panel3);
 
 	}
 
@@ -163,7 +189,7 @@ public class Frame extends JApplet implements Runnable {
 		// try {
 
 		int c = 0;
-		Graphics g = panel1.getGraphics();
+		Graphics g = panel3.getGraphics();
 		g.setColor(Color.BLACK);
 		int x = 0;
 		int x0 = (int) xc[x];
@@ -175,7 +201,7 @@ public class Frame extends JApplet implements Runnable {
 		time = Integer.parseInt(Time);
 		if (x + steps < xc.length) {
 
-			g.drawLine(x0 + 1, y0 + 1, x1 + 1, y1 + 1);
+			g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[x+steps] + 1, (int)yc[x+steps] + 1);
 			linex[c][0] = xc[x] + 1;
 			linex[c][1] = xc[x + steps] + 1;
 			liney[c][0] = yc[x] + 1;
@@ -186,20 +212,21 @@ public class Frame extends JApplet implements Runnable {
 
 		}
 		if (x + steps >= xc.length) {
-			g.drawLine(x0 + 1, y0 + 1, x1 % xc.length + 1, y1 % xc.length + 1);
+			int crap = x + steps - xc.length;
+			g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[crap] + 1, (int)yc[crap] + 1);
 			linex[c][0] = xc[x] + 1;
-			linex[c][1] = xc[(x + steps) % xc.length] + 1;
+			linex[c][1] = xc[crap] + 1;
 			liney[c][0] = yc[x] + 1;
-			liney[c][1] = yc[(x + steps) % xc.length] + 1;
+			liney[c][1] = yc[crap] + 1;
 			c++;
-			x = (x + steps) % xc.length;
+			x = crap;
 			Thread.sleep(time);
 
 		}
 
 		while (x != 0) {
 			if (x + steps < xc.length) {
-				g.drawLine(x0 + 1, y0 + 1, x1 + 1, y1 + 1);
+				g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[x+steps] + 1, (int)yc[x+steps] + 1);
 				linex[c][0] = xc[x] + 1;
 				linex[c][1] = xc[x + steps] + 1;
 				liney[c][0] = yc[x] + 1;
@@ -208,14 +235,14 @@ public class Frame extends JApplet implements Runnable {
 				c++;
 				Thread.sleep(time);
 			} else if (x + steps >= xc.length) {
-				g.drawLine(x0 + 1, y0 + 1, x1 % xc.length + 1, y1 % xc.length
-						+ 1);
+				int crap = x + steps - xc.length;
+				g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[crap] + 1, (int)yc[crap] + 1);
 				linex[c][0] = xc[x] + 1;
-				linex[c][1] = xc[(x + steps) % xc.length] + 1;
+				linex[c][1] = xc[crap] + 1;
 				liney[c][0] = yc[x] + 1;
-				liney[c][1] = yc[(x + steps) % xc.length] + 1;
+				liney[c][1] = yc[crap] + 1;
 				c++;
-				x = (x + steps) % xc.length;
+				x = crap;
 				Thread.sleep(time);
 			}
 
@@ -226,14 +253,14 @@ public class Frame extends JApplet implements Runnable {
 			System.out.println(x11 + " " + y11);
 		}
 		g.dispose();
-		speed.setText(Integer.toString(c));
+		//speed.setText(Integer.toString(c));
 		place = c - 1;
 		// } catch (NumberFormatException ignored) {} catch
 		// (NullPointerException ignored) {}
 	}// end of lines
 
 	public void Point(int x, int y) throws InterruptedException {
-		Graphics g = panel1.getGraphics();
+		Graphics g = panel3.getGraphics();
 		g.setColor(Color.BLACK);
 		g.fillRect(x, y, 3, 3);
 		Thread.sleep(Integer.parseInt(Time));

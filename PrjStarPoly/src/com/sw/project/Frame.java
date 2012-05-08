@@ -34,30 +34,42 @@ public class Frame extends JApplet implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 
+
 	public Frame() {
 		super();
 		setLayout(new GridLayout(3, 1, 10, 10));
+
+
 
 		// label5
 
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
-
+		
+		
+		
 		numdots = new TextField(10);
+		
+		
+		
+		
 
 		// Milliseconds field
 		textlabel2 = new JLabel("Speed in Milliseconds:", JLabel.LEFT);
-
+		
 		speed = new TextField(10);
-
+		
+	
 		// Steps field
 		textlabel3 = new JLabel("Enter number of Steps:", JLabel.LEFT);
-
+		
 		steps = new TextField(10);
+		
 
 		// buttons
 		JButton start = new JButton("Start");
-
+		
+		
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int cccc = Integer.parseInt(numdots.getText());
@@ -70,18 +82,19 @@ public class Frame extends JApplet implements Runnable {
 				g.setColor(Color.WHITE);
 				g.fillRect(0, 0, 1000, 1000);
 				g.dispose();
-
+				
 				try {
 					circle();
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
+		
 
 			}
 		});
 
 		JButton button2 = new JButton("Back");
-
+		
 		button2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -97,11 +110,12 @@ public class Frame extends JApplet implements Runnable {
 					place--;
 					g.dispose();
 				}
-
+		
 			}
 		});
 
 		JButton button3 = new JButton("Forward");
+		
 
 		button3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,8 +135,10 @@ public class Frame extends JApplet implements Runnable {
 
 			}
 		});
-
-		panel1 = new JPanel(new GridLayout(3, 2, 10, 10));
+		
+		panel1 = new JPanel(new GridLayout(3,2,10,10));
+		
+		
 		panel1.add(textlabel1);
 		panel1.add(numdots);
 		panel1.add(textlabel2);
@@ -131,14 +147,15 @@ public class Frame extends JApplet implements Runnable {
 		panel1.add(steps);
 		panel1.setBounds(10, 10, 400, 300);
 		add(panel1);
-
+		
 		panel2 = new JPanel(new FlowLayout());
+
 		panel2.add(start);
 		panel2.add(button2);
 		panel2.add(button3);
 		panel2.setBounds(10, 100, 400, 100);
 		add(panel2);
-
+		
 		panel3 = new JPanel(new FlowLayout());
 		panel3.setBackground(Color.WHITE);
 		add(panel3);
@@ -169,7 +186,7 @@ public class Frame extends JApplet implements Runnable {
 	}
 
 	public void lines(int steps, int i) throws InterruptedException {
-		// try {
+		
 
 		Graphics g = panel3.getGraphics();
 		g.setColor(Color.BLACK);
@@ -179,8 +196,7 @@ public class Frame extends JApplet implements Runnable {
 		time = Integer.parseInt(Time);
 		if (x + steps < xc.length) {
 
-			g.drawLine((int) xc[x] + 1, (int) yc[x] + 1,
-					(int) xc[x + steps] + 1, (int) yc[x + steps] + 1);
+			g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[x+steps] + 1, (int)yc[x+steps] + 1);
 			linex[c][0] = xc[x] + 1;
 			linex[c][1] = xc[x + steps] + 1;
 			liney[c][0] = yc[x] + 1;
@@ -192,8 +208,7 @@ public class Frame extends JApplet implements Runnable {
 		}
 		if (x + steps >= xc.length) {
 			int crap = x + steps - xc.length;
-			g.drawLine((int) xc[x] + 1, (int) yc[x] + 1, (int) xc[crap] + 1,
-					(int) yc[crap] + 1);
+			g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[crap] + 1, (int)yc[crap] + 1);
 			linex[c][0] = xc[x] + 1;
 			linex[c][1] = xc[crap] + 1;
 			liney[c][0] = yc[x] + 1;
@@ -206,8 +221,7 @@ public class Frame extends JApplet implements Runnable {
 
 		while (x != i) {
 			if (x + steps < xc.length) {
-				g.drawLine((int) xc[x] + 1, (int) yc[x] + 1,
-						(int) xc[x + steps] + 1, (int) yc[x + steps] + 1);
+				g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[x+steps] + 1, (int)yc[x+steps] + 1);
 				linex[c][0] = xc[x] + 1;
 				linex[c][1] = xc[x + steps] + 1;
 				liney[c][0] = yc[x] + 1;
@@ -217,8 +231,7 @@ public class Frame extends JApplet implements Runnable {
 				Thread.sleep(time);
 			} else if (x + steps >= xc.length) {
 				int crap = x + steps - xc.length;
-				g.drawLine((int) xc[x] + 1, (int) yc[x] + 1,
-						(int) xc[crap] + 1, (int) yc[crap] + 1);
+				g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[crap] + 1, (int)yc[crap] + 1);
 				linex[c][0] = xc[x] + 1;
 				linex[c][1] = xc[crap] + 1;
 				liney[c][0] = yc[x] + 1;
@@ -235,8 +248,10 @@ public class Frame extends JApplet implements Runnable {
 			System.out.println(x11 + " " + y11);
 		}
 		g.dispose();
+		
 		place = c - 1;
-
+		
+		
 	}// end of lines
 
 	public void Point(int x, int y) throws InterruptedException {
@@ -273,8 +288,9 @@ public class Frame extends JApplet implements Runnable {
 			PointOnCircle(angle, x);
 			angle = angle + Angle;
 		}
-		for (int i = 0; c < dots; i++) {
-			lines(step, i);
+		for(int i = 0; c < dots;i++)
+		{
+		lines(step, i);
 		}
 	}
 

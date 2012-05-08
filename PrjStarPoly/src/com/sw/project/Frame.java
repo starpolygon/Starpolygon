@@ -18,6 +18,8 @@ public class Frame extends JApplet implements Runnable {
 	JPanel panel1, panel2, panel3;
 
 	// variables
+	int c = 0;
+	int x = 0;
 	int r = 100;
 	int X = 220;
 	int Y = 170;
@@ -185,17 +187,12 @@ public class Frame extends JApplet implements Runnable {
 
 	}
 
-	public void lines(int steps) throws InterruptedException {
+	public void lines(int steps, int i) throws InterruptedException {
 		// try {
 
-		int c = 0;
 		Graphics g = panel3.getGraphics();
 		g.setColor(Color.BLACK);
-		int x = 0;
-		int x0 = (int) xc[x];
-		int y0 = (int) yc[x];
-		int x1 = (int) xc[x + steps];
-		int y1 = (int) yc[x + steps];
+		x = i;
 		int time;
 		String Time = speed.getText();
 		time = Integer.parseInt(Time);
@@ -224,7 +221,7 @@ public class Frame extends JApplet implements Runnable {
 
 		}
 
-		while (x != 0) {
+		while (x != i) {
 			if (x + steps < xc.length) {
 				g.drawLine((int)xc[x] + 1, (int)yc[x] + 1, (int)xc[x+steps] + 1, (int)yc[x+steps] + 1);
 				linex[c][0] = xc[x] + 1;
@@ -247,9 +244,9 @@ public class Frame extends JApplet implements Runnable {
 			}
 
 		}
-		for (int i = 0; i < linex.length; i++) {
-			int x11 = (int) linex[i][0];
-			int y11 = (int) linex[i][1];
+		for (int ii = 0; ii < linex.length; ii++) {
+			int x11 = (int) linex[ii][0];
+			int y11 = (int) linex[ii][1];
 			System.out.println(x11 + " " + y11);
 		}
 		g.dispose();
@@ -293,7 +290,10 @@ public class Frame extends JApplet implements Runnable {
 			PointOnCircle(angle, x);
 			angle = angle + Angle;
 		}
-		lines(step);
+		for(int i = 0; c < dots;i++)
+		{
+		lines(step, i);
+		}
 	}
 
 	@Override

@@ -37,10 +37,6 @@ public class Frame extends JApplet implements Runnable {
 	public Frame() {
 		super();
 		setLayout(new BorderLayout(10,10));
-		//setLayout(new GridBagLayout());
-		//setLayout(new GridLayout(3, 1, 10, 10));
-		// label5
-		//GridBagConstraints constraint = new GridBagConstraints();
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of dots:", JLabel.LEFT);
 
@@ -140,34 +136,16 @@ public class Frame extends JApplet implements Runnable {
 		panel1.add(steps);
 		panel1.add(textlabel2);
 		panel1.add(speed);
-		/*constraint.gridwidth = 3;
-		constraint.gridx = 0;
-		constraint.gridy = 0;
-		constraint.weightx = 0.0;
-		constraint.fill = GridBagConstraints.HORIZONTAL;*/
-		//panel1.setBounds(10, 10, 400, 300);
 		panel1.setPreferredSize(new Dimension(200, 100));
 		add(panel1, BorderLayout.PAGE_START);
-
 		panel2 = new JPanel(new GridLayout(1,3,10,10));
 		panel2.add(start);
 		panel2.add(back);
 		panel2.add(forward);
-		//panel2.setBounds(10, 100, 400, 100);
-		/*constraint.gridwidth = 3;
-		constraint.gridx = 0;
-		constraint.gridy = 1;
-		constraint.fill = GridBagConstraints.HORIZONTAL;*/
 		panel2.setPreferredSize(new Dimension(20, 20));
 		add(panel2, BorderLayout.PAGE_END);
 
 		panel3 = new JPanel(new FlowLayout());
-		/*constraint.gridwidth = 3;
-		constraint.gridx = 0;
-		constraint.fill = GridBagConstraints.HORIZONTAL;
-		constraint.gridy = 3;
-		constraint.ipady = 200;
-		panel3.setBackground(Color.WHITE);*/
 		panel3.setPreferredSize(new Dimension(200, 200));
 		add(panel3, BorderLayout.CENTER);
 

@@ -41,7 +41,7 @@ public class Frame extends JApplet implements Runnable {
 	public Frame() {
 		super();
 		setLayout(new BorderLayout(10, 10));
-
+		
 		// Dots field
 		textlabel1 = new JLabel("Enter Number of Dots:", JLabel.LEFT);
 
@@ -56,9 +56,11 @@ public class Frame extends JApplet implements Runnable {
 		textlabel3 = new JLabel("Enter Number of Steps:", JLabel.LEFT);
 
 		steps = new TextField(10);
-
+		
+		label5 = new JLabel();
 		// start button
 		JButton start = new JButton("Start");
+		
 		// listen for button click on start button
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -130,18 +132,21 @@ public class Frame extends JApplet implements Runnable {
 			}
 		});
 		// create panel 1, which displays numdots, steps and speed
-		panel1 = new JPanel(new GridLayout(3, 2, 10, 10));
+		panel1 = new JPanel(new GridLayout(4, 2, 10, 10));
 		panel1.add(textlabel1);
 		panel1.add(numdots);
 		panel1.add(textlabel3);
 		panel1.add(steps);
 		panel1.add(textlabel2);
 		panel1.add(speed);
+		panel1.add(label5);
 
 		// set panel 1 size
 		panel1.setPreferredSize(new Dimension(200, 100));
 		add(panel1, BorderLayout.PAGE_START);
-
+		//Tells you how many iterations
+		//add(label5, BorderLayout.EAST);
+		
 		// set panel 2 size and add start, back and forward buttons to the panel
 		panel2 = new JPanel(new GridLayout(1, 3, 10, 10));
 		panel2.add(start);
@@ -150,6 +155,7 @@ public class Frame extends JApplet implements Runnable {
 
 		// panel 2 which displays buttons
 		panel2.setPreferredSize(new Dimension(20, 20));
+		
 		add(panel2, BorderLayout.PAGE_END);
 
 		// panel 3 displays the star polgyon circle
@@ -157,7 +163,8 @@ public class Frame extends JApplet implements Runnable {
 
 		panel3.setPreferredSize(new Dimension(200, 200));
 		add(panel3, BorderLayout.CENTER);
-
+		
+		
 	}
 
 	// start method
@@ -255,7 +262,7 @@ public class Frame extends JApplet implements Runnable {
 		Graphics g = panel3.getGraphics();
 		g.setColor(Color.BLACK);
 		g.fillRect(x, y, 3, 3);
-		Thread.sleep(Time);
+		//Thread.sleep(Time);
 		g.dispose();
 
 	}
@@ -267,9 +274,9 @@ public class Frame extends JApplet implements Runnable {
 				* Math.cos(angleInDegrees * Math.PI / 180 + Math.PI * 3 / 2));
 		int y = (int) (Y + r
 				* Math.sin(angleInDegrees * Math.PI / 180 + Math.PI * 3 / 2));
-		Point(x, y);
-		xc[c] = (float) x;
-		yc[c] = (float) y;
+		Point(x*2, y*2);
+		xc[c] = (float) x *2;
+		yc[c] = (float) y *2;
 	}
 
 	// circle method
@@ -289,6 +296,7 @@ public class Frame extends JApplet implements Runnable {
 		}
 		for (int i = 0; c < dots; i++) {
 			lines(step, i);
+			label5.setText(String.format("Number of Iterations: %d", i));
 		}
 	}
 

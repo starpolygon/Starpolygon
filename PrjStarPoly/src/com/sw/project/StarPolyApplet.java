@@ -1,3 +1,7 @@
+/* Created by James Foster, Gary Savoie, Gavin Lofland, Brendan Opalka, Lee Nguyen
+ For Dr. Christine Von Renesse of the WSU Math Department
+ As part of a project in Software Engineering course, May 9th 2012*/
+
 package com.sw.project;
 
 import java.applet.Applet;

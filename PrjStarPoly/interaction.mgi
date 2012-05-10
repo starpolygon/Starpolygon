@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <CommunicationClass name="com.sw.project.Frame" x="155" y="93"/>
+    <CommunicationClass name="com.sw.project.StarPolyApplet" x="347" y="97">
+        <Association destinationClassName="com.sw.project.Frame"
+            endpointName="starPoly" kind="Simple"/>
+        <Communication destinationClassName="com.sw.project.Frame"/>
+    </CommunicationClass>
+</ClassDiagram>

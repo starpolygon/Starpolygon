@@ -161,9 +161,8 @@ public class Frame extends JApplet implements Runnable {
 		// panel 3 displays the star polgyon circle
 		panel3 = new JPanel(new FlowLayout());
 
-		panel3.setPreferredSize(new Dimension(200, 200));
+		panel3.setSize(200,200);
 		add(panel3, BorderLayout.CENTER);
-		
 		
 	}
 
